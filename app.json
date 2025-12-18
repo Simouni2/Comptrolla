@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "App_Comptrolla",
+    "slug": "app-comptrolla",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "54.0.0"
+  }
+}
