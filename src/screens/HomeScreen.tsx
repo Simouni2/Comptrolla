@@ -13,26 +13,31 @@ const HomeScreen: React.FC<Props> = () => {
 
   return (
     <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* Logo + Greeting */}
-      <View style={styles.header}>
+      {/* Header */}
+      <LinearGradient
+        colors={['#bdfbb6ff', '#077753ff']}
+        style={styles.header}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
         <Image source={require('../../assets/logo.png')} style={styles.logo} />
-        <Text style={[styles.title, { color: colors.text }]}>Welcome to Comptrolla</Text>
-        <Text style={[styles.subtitle, { color: colors.text }]}>Track municipal issues in real-time</Text>
-      </View>
+        <Text style={styles.title}>Welcome to Comptrolla</Text>
+        <Text style={styles.subtitle}>Promoting applications and services across municipalities and communities</Text>
+      </LinearGradient>
 
       {/* Quick Actions */}
       <View style={styles.quickActions}>
         <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#FF6B6B', shadowColor: '#FF6B6B' }]}>
-          <Ionicons name="alert-circle" size={24} color="#fff" />
-          <Text style={styles.actionText}>Report Issue</Text>
+          <Ionicons name="apps" size={24} color="#fff" />
+          <Text style={styles.actionText}>Explore Apps</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#4ECDC4', shadowColor: '#4ECDC4' }]}>
-          <Ionicons name="map" size={24} color="#fff" />
-          <Text style={styles.actionText}>View Map</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#556270', shadowColor: '#556270' }]}>
           <Ionicons name="people" size={24} color="#fff" />
           <Text style={styles.actionText}>Community</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#556270', shadowColor: '#556270' }]}>
+          <Ionicons name="notifications" size={24} color="#fff" />
+          <Text style={styles.actionText}>Updates</Text>
         </TouchableOpacity>
       </View>
 
@@ -43,8 +48,8 @@ const HomeScreen: React.FC<Props> = () => {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       >
-        <Text style={styles.promoTitle}>Boost Community Action</Text>
-        <Text style={styles.promoText}>Report, track, and resolve issues faster than ever.</Text>
+        <Text style={styles.promoTitle}>Empower Your Municipality</Text>
+        <Text style={styles.promoText}>Promote services, engage users, and enhance community collaboration.</Text>
         <TouchableOpacity style={styles.promoButton}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
@@ -53,9 +58,9 @@ const HomeScreen: React.FC<Props> = () => {
       {/* Stats */}
       <View style={styles.statsContainer}>
         {[
-          { icon: 'checkmark-done-circle', value: '+150', label: 'Resolved' },
-          { icon: 'notifications', value: '+300', label: 'Alerts' },
+          { icon: 'apps', value: '+50', label: 'Apps Promoted' },
           { icon: 'people', value: '+1200', label: 'Users' },
+          { icon: 'notifications', value: '+300', label: 'Updates' },
         ].map((item, index) => (
           <LinearGradient
             key={index}
@@ -75,16 +80,16 @@ const HomeScreen: React.FC<Props> = () => {
       <View style={styles.factsContainer}>
         <Text style={[styles.factsTitle, { color: colors.text }]}>Why Comptrolla?</Text>
         <View style={[styles.factCard, styles.shadow]}>
-          <MaterialIcons name="speed" size={24} color="#0072ff" />
-          <Text style={styles.factText}>Faster issue resolution for your community</Text>
+          <MaterialIcons name="apps" size={24} color="#0072ff" />
+          <Text style={styles.factText}>Easily promote municipal applications to citizens</Text>
         </View>
         <View style={[styles.factCard, styles.shadow]}>
           <MaterialIcons name="group" size={24} color="#0072ff" />
-          <Text style={styles.factText}>Engage and empower local residents</Text>
+          <Text style={styles.factText}>Connect users and local services</Text>
         </View>
         <View style={[styles.factCard, styles.shadow]}>
           <MaterialIcons name="analytics" size={24} color="#0072ff" />
-          <Text style={styles.factText}>Track real-time data to make better decisions</Text>
+          <Text style={styles.factText}>Track adoption and engagement in real-time</Text>
         </View>
       </View>
     </ScrollView>
@@ -95,10 +100,10 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20 },
-  header: { alignItems: 'center', marginBottom: 20 },
-  logo: { width: 140, height: 140, marginBottom: 16 }, // bigger logo
-  title: { fontSize: 28, fontWeight: '700' },
-  subtitle: { fontSize: 16, color: '#ddd', textAlign: 'center', marginBottom: 20 },
+  header: { alignItems: 'center', marginBottom: 20, borderRadius: 16, padding: 20 },
+  logo: { width: 400, height: 100, marginBottom: 16 },
+  title: { fontSize: 28, fontWeight: '700', color: '#fff', textAlign: 'center' },
+  subtitle: { fontSize: 16, color: '#eee', textAlign: 'center', marginTop: 4 },
 
   quickActions: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 },
   actionButton: {
@@ -151,7 +156,6 @@ const styles = StyleSheet.create({
   },
   factText: { marginLeft: 8, fontSize: 14, color: '#333' },
 
-  // Shared shadow style
   shadow: {
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.3,

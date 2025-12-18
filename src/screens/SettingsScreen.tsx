@@ -28,7 +28,7 @@ const SettingsScreen: React.FC<Props> = () => {
       >
         <Ionicons name="notifications" size={28} color="#fff" style={{ marginBottom: 8 }} />
         <Text style={styles.cardTitle}>Notifications</Text>
-        <Text style={styles.cardText}>Enable or disable alerts</Text>
+        <Text style={styles.cardText}>Enable or disable app alerts</Text>
         <Switch
           value={notificationsEnabled}
           onValueChange={setNotificationsEnabled}
@@ -64,7 +64,7 @@ const SettingsScreen: React.FC<Props> = () => {
       >
         <Ionicons name="location" size={28} color="#fff" style={{ marginBottom: 8 }} />
         <Text style={styles.cardTitle}>Location Access</Text>
-        <Text style={styles.cardText}>Allow app to access your location</Text>
+        <Text style={styles.cardText}>Allow the app to access your location for better service recommendations</Text>
         <Switch
           value={locationEnabled}
           onValueChange={setLocationEnabled}
