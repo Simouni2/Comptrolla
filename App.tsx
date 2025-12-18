@@ -12,6 +12,7 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import { RootTabParamList } from './src/navigation/types';
 import { AppTheme } from './src/theme';
+import CustomTabBar from './src/navigation/CustomTabBar';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -20,6 +21,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer theme={AppTheme}>
         <Tab.Navigator
+          tabBar={(props) => <CustomTabBar {...props} />}
           screenOptions={({ route }) => ({
             headerShown: false,
             tabBarActiveTintColor: '#ffffff',
